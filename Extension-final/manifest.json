@@ -1,0 +1,40 @@
+{
+    "manifest_version": 3,
+    "name": "SEO Transcript Analyzer",
+    "version": "1.0",
+    "description": "Generate and analyze webpage transcripts with ChatGPT for SEO optimization",
+    "permissions": [
+      "activeTab",
+      "storage",
+      "clipboardWrite",
+      "clipboardRead",
+      "contextMenus",
+      "scripting",
+      "tabs",
+      "webNavigation"
+    ],
+    "host_permissions": [
+      "<all_urls>",
+      "*://*.google.com/*"
+    ],
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [{
+      "matches": [
+        "<all_urls>",
+        "*://*.google.com/*"
+      ],
+      "js": ["contentScript.js"],
+      "css": ["sidebar.css"],
+      "run_at": "document_end",
+      "all_frames": true
+    }],
+    "web_accessible_resources": [{
+      "resources": ["icons/*"],
+      "matches": ["<all_urls>"]
+    }]
+  }
