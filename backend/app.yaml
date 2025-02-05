@@ -1,0 +1,7 @@
+runtime: python39  # or the version you're using
+entrypoint: gunicorn -b :$PORT main:app
+
+env_variables:
+  OPENAI_API_KEY: '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'
+  GOOGLE_APPLICATION_CREDENTIALS: 'path/to/your_service_account.json'
+  WEBHOOK_URL: "https://hooks.slack.com/triggers/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"
